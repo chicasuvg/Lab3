@@ -11,9 +11,6 @@ package Hospital;
  */
 public class HospitalUI extends javax.swing.JFrame {
     
-    Doctor medico;
-    Enfermera enfermera;
-    Guardia pizarra;
     /**
      * Creates new form HospitalUI
      */

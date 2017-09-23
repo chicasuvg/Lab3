@@ -56,6 +56,10 @@ public class Doctor {
     {
         conIntensivista +=1;
     }
+    public void restarConIntensivo()
+    {
+        conIntensivista -=1;
+    }
     public void addTurno()
     {
         guardias +=1;

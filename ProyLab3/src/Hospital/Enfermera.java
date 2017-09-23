@@ -60,6 +60,10 @@ public class Enfermera {
     {
         conEspecialista +=1;
     }
+    public void restarConEspecial()
+    {
+        conEspecialista -= 1;
+    }
     public void numCompanero(Doctor doc)
     {
         if(doc.getNombre().equals("Juan Perez"))

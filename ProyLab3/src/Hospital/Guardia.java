@@ -86,6 +86,11 @@ public class Guardia {
                     pizarra[dia][mes].setReemplazable(true);
                     pizarra[dia][mes].setEnfermera(enfermera);
                     pizarra[dia][mes].getEnfermera().addTurno();
+                    if (pizarra[dia][mes].getDoctor().getEspecial() ==true)
+                    {
+                        pizarra[dia][mes].getEnfermera().restarConEspecial();
+                        pizarra[dia][mes].getDoctor().restarConIntensivo();
+                    }
                 }
                 else
                 {
