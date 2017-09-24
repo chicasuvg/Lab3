@@ -15,17 +15,15 @@ public class Turno {
     private Doctor medico;
     private boolean reemplazable;
     
-    public Turno()
+    public Turno(Enfermera enfermera, Doctor doctor)
     {
+        this.medico = doctor;
+        this.enfermera = enfermera;
         reemplazable = true;
     }
     public void setEnfermera(Enfermera enfermera)
     {
         this.enfermera = enfermera;
-    }
-    public void setDoctor(Doctor doctor)
-    {
-        this.medico = doctor;
     }
     public void setReemplazable (boolean disp)
     {

@@ -35,6 +35,7 @@ public class Enfermera {
         this.salario = salario;
         this.intensivista = intensivista;
         this.anios = anios;
+        guardias =0;
     }
     public double getExtra()
     {
@@ -91,7 +92,7 @@ public class Enfermera {
     public void addTurno()
     {
         guardias +=1;
-        if (guardias > 4)
+        if (guardias > 48)
         {
             this.extra = guardias * 500.0;
         }

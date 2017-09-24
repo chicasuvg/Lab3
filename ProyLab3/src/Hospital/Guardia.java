@@ -8,6 +8,9 @@ package Hospital;
  * @author Ana
  */
 import java.util.Random;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Guardia {
     private Doctor[] doctores;
@@ -41,10 +44,15 @@ public class Guardia {
         }
         pizarra = new Turno[31][12];
     }
-    
-    public void crearPizarra() //crea el calendario de los turnos de los doctores y enfermeras
+    /**
+     * Metodo para crear la pizarra que contendra todos los turnos del anio.
+     * 
+     */
+    public void crearMatriz() //crea el calendario de los turnos de los doctores y enfermeras
     {
         Random genRandom = new Random(); //Crea el objeto de tipo random
+        Enfermera nurse = null;
+        Doctor doc = null;
         for (int i =0; i< 31; i++)
         {
             for (int j=0; j<12; j++)
@@ -55,24 +63,46 @@ public class Guardia {
                 {
                     if(enfermera.getPosicion() == positionE)
                     {
-                        pizarra[i][j].getEnfermera().addTurno();
-                        pizarra[i][j].setEnfermera(enfermera);
+                        nurse = enfermera;
                     }
                 }
                 for (Doctor doctor: doctores)
                 {
                     if(doctor.getPosicion() == positionD)
                     {
-                        pizarra[i][j].setDoctor(doctor);
+                        doc = doctor;
                     }
                 }
-                if ((pizarra[i][j].getEnfermera().getIntensivista() == true) && (pizarra[i][j].getDoctor().getEspecial() == true))
+                pizarra[i][j] = new Turno(nurse, doc);
+                pizarra[i][j].getEnfermera().addTurno();
+            }
+        }
+        for(int k =0; k<31; k++)
+        {
+            for(int h=0; h<12; h++)
+            {
+                if ((pizarra[k][h].getEnfermera().getIntensivista() == true) && (pizarra[k][h].getDoctor().getEspecial() == true))
                 {
-                    pizarra[i][j].getEnfermera().addConEspecial();
-                    pizarra[i][j].getDoctor().addConIntensivo();
+                    pizarra[k][h].getEnfermera().addConEspecial();
+                    pizarra[k][h].getDoctor().addConIntensivo();
                 }
             }
         }
+    }
+    public void setPizarra(JTable tabla)
+    {
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        for (int i =0; i< 31; i++)
+        {
+            for (int j=0; j<12; j++)
+            {
+                String doct = pizarra[i][j].getDoctor().getNombre();
+                String enf = pizarra[i][j].getEnfermera().getNombre();
+                String info = "Dr.: "+doct+ "\nEnf.: "+enf;
+                tabla.setValueAt(info, i, j);
+            }
+        }
+        
     }
     public void cambioEnfermera(int dia, int mes, String nombre) //para hacer el cambio de enfermera
     {

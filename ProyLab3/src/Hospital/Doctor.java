@@ -1,7 +1,4 @@
-/* prueba hello
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
  */
 package Hospital;
 
@@ -35,6 +32,7 @@ public class Doctor {
         this.colegiado = colegiado;
         this.salario = salario;
         this.especialista = especialista;
+        guardias =0;
     }
     public double getExtra()
     {
@@ -63,7 +61,7 @@ public class Doctor {
     public void addTurno()
     {
         guardias +=1;
-        if (guardias > 2)
+        if (guardias > 24)
         {
             this.extra = guardias * 900.0;
         }
