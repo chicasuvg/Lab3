@@ -106,6 +106,13 @@ public class Guardia {
                 String info = "Dr.: "+doct+ "\nEnf.: "+enf;
                 tabla.setValueAt(info, i, j+1);
             }
+        tabla.setValueAt("",28,2);
+        tabla.setValueAt("",29,2);
+        tabla.setValueAt("",30,2);
+        tabla.setValueAt("",30,4);
+        tabla.setValueAt("",30,6);
+        tabla.setValueAt("",30,9);
+        tabla.setValueAt("",30,11);
         }
         
     }
