@@ -1,7 +1,7 @@
 /**
  * @author Ana Lucia Hernandez (17138). Andrea Arguello (17801).
  * @proposito Interfaz grafica que le permite al usuario 
- * 
+ *
  */
 package Hospital;
 
@@ -17,6 +17,9 @@ public class HospitalUI extends javax.swing.JFrame {
         turnos = new Guardia();
         turnos.crearMatriz();
         turnos.setPizarra(this.tabla);
+        jl_intensivo.setVisible(false);
+        jtf_intens.setText(turnos.masGuardias()+", Q"+Double.toString(turnos.intensivistaExtra()));
+        jtf_deveng.setText("Q"+Double.toString(turnos.getTotalDevengado()));
     }
 
     /**
@@ -28,24 +31,37 @@ public class HospitalUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
+        jb_ok = new javax.swing.JButton();
+        jcb_conjDoc = new javax.swing.JComboBox<>();
+        jcb_conjEnf = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jtf_deveng = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jtf_intens = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jcb_dia = new javax.swing.JComboBox<>();
+        jcb_mes = new javax.swing.JComboBox<>();
+        jl_fecha = new javax.swing.JLabel();
+        jcb_enfermera = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jb_cambio = new javax.swing.JButton();
+        jl_intensivo = new javax.swing.JLabel();
+        jl_fecha1 = new javax.swing.JLabel();
+        jtf_conjunto = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jcbdiaTurno = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jcbMesTurno = new javax.swing.JComboBox<>();
+        textAreaTurnos = new java.awt.TextArea();
+        jbVerInfo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cambio de Enfermeras"));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 205, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 143, Short.MAX_VALUE)
-        );
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,14 +112,222 @@ public class HospitalUI extends javax.swing.JFrame {
         tabla.setRowHeight(50);
         jScrollPane1.setViewportView(tabla);
 
+        jb_ok.setText("OK");
+        jb_ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_okActionPerformed(evt);
+            }
+        });
+
+        jcb_conjDoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Juan Perez", "Eduardo Gonzalez", "Guadalupe Torres" }));
+        jcb_conjDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_conjDocActionPerformed(evt);
+            }
+        });
+
+        jcb_conjEnf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lidia Mendez", "Lorna Suarez" }));
+        jcb_conjEnf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_conjEnfActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Doctor Especialista:            Enfermera intensivo:");
+
+        jLabel4.setText("Revisar cantidad de guardias conjuntas:");
+
+        jtf_deveng.setEditable(false);
+
+        jLabel3.setText("Devengado anual por extras:");
+
+        jtf_intens.setEditable(false);
+
+        jLabel2.setText("Intensivista con mas guardias y pago por extras:");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cambio de Enfermeras"));
+
+        jcb_dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jcb_dia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_diaActionPerformed(evt);
+            }
+        });
+
+        jcb_mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        jcb_mes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_mesActionPerformed(evt);
+            }
+        });
+
+        jl_fecha.setText("Dia");
+
+        jcb_enfermera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Juana Lopez", "Lidia Mendez", "Miriam Garcia", "Lorna Suarez", "Mariela Rodriguez" }));
+        jcb_enfermera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_enfermeraActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Enfermera");
+
+        jb_cambio.setText("Cambiar");
+        jb_cambio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_cambioActionPerformed(evt);
+            }
+        });
+
+        jl_intensivo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jl_intensivo.setForeground(new java.awt.Color(255, 109, 0));
+        jl_intensivo.setText("Esta enfermera no es intensivista.");
+
+        jl_fecha1.setText("Mes");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jl_intensivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jl_fecha))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jcb_dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jl_fecha1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jcb_mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jcb_enfermera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jb_cambio)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcb_dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcb_mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jl_fecha)
+                    .addComponent(jl_fecha1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcb_enfermera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jb_cambio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jl_intensivo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jtf_conjunto.setEditable(false);
+        jtf_conjunto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_conjuntoActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Más información sobre los turnos"));
+
+        jLabel6.setText("Ingrese la fecha del turno:");
+
+        jLabel7.setText("Día");
+
+        jcbdiaTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        jLabel8.setText("Mes:");
+
+        jcbMesTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+
+        jbVerInfo.setText("Ver Información");
+        jbVerInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbVerInfoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(textAreaTurnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jcbdiaTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jcbMesTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jbVerInfo)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jcbdiaTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jcbMesTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbVerInfo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(textAreaTurnos, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1116, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jcb_conjDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jcb_conjEnf, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jb_ok)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jtf_conjunto, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtf_intens)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3)
+                                .addComponent(jtf_deveng, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1015, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -111,13 +335,100 @@ public class HospitalUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtf_intens, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtf_deveng, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jcb_conjDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jcb_conjEnf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jb_ok)
+                            .addComponent(jtf_conjunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jb_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_okActionPerformed
+        // TODO add your handling code here:
+
+        jtf_conjunto.setText(String.valueOf(turnos.guardiasConjuntas((String)jcb_conjEnf.getSelectedItem(),(String)jcb_conjDoc.getSelectedItem())));
+
+    }//GEN-LAST:event_jb_okActionPerformed
+
+    private void jcb_conjDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_conjDocActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_conjDocActionPerformed
+
+    private void jcb_conjEnfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_conjEnfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_conjEnfActionPerformed
+
+    private void jcb_diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_diaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_diaActionPerformed
+
+    private void jcb_mesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_mesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_mesActionPerformed
+
+    private void jcb_enfermeraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_enfermeraActionPerformed
+        // TODO add your handling code here:
+        jl_intensivo.setVisible(false);
+    }//GEN-LAST:event_jcb_enfermeraActionPerformed
+
+    private void jb_cambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_cambioActionPerformed
+        // TODO add your handling code here:
+        int dia = Integer.parseInt((String)jcb_dia.getSelectedItem())-1;
+        int mes = Integer.parseInt((String)jcb_mes.getSelectedItem())-1;
+        String nombre = (String)jcb_enfermera.getSelectedItem();
+        turnos.cambioEnfermera(dia, mes, nombre);
+        if(turnos.getFechaPizarra(dia,mes).getReemplazable()==false){
+            jl_intensivo.setVisible(true);
+        }
+    }//GEN-LAST:event_jb_cambioActionPerformed
+
+    private void jtf_conjuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_conjuntoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtf_conjuntoActionPerformed
+
+    private void jbVerInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerInfoActionPerformed
+        int dia = Integer.parseInt(String.valueOf(jcbdiaTurno.getSelectedItem()));
+        String month = String.valueOf(jcbMesTurno.getSelectedItem());
+        int mes = 0;
+        if(month.equals("Enero")) {mes=1;}
+        if(month.equals("Febrero")) {mes=2;}
+        if(month.equals("Marzo")) {mes=3;}
+        if(month.equals("Abril")) {mes=4;}
+        if(month.equals("Mayo")) {mes=5;}
+        if(month.equals("Junio")) {mes=6;}
+        if(month.equals("Julio")) {mes=7;}
+        if(month.equals("Agosto")) {mes=8;}
+        if(month.equals("Septiembre")) {mes=9;}
+        if(month.equals("Octubre")) {mes=10;}
+        if(month.equals("Noviembre")) {mes=11;}
+        if(month.equals("Diciembre")) {mes=12;}
+        textAreaTurnos.setText(turnos.infoTurno(dia, mes));
+    }//GEN-LAST:event_jbVerInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,8 +466,34 @@ public class HospitalUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbVerInfo;
+    private javax.swing.JButton jb_cambio;
+    private javax.swing.JButton jb_ok;
+    private javax.swing.JComboBox<String> jcbMesTurno;
+    private javax.swing.JComboBox<String> jcb_conjDoc;
+    private javax.swing.JComboBox<String> jcb_conjEnf;
+    private javax.swing.JComboBox<String> jcb_dia;
+    private javax.swing.JComboBox<String> jcb_enfermera;
+    private javax.swing.JComboBox<String> jcb_mes;
+    private javax.swing.JComboBox<String> jcbdiaTurno;
+    private javax.swing.JLabel jl_fecha;
+    private javax.swing.JLabel jl_fecha1;
+    private javax.swing.JLabel jl_intensivo;
+    private javax.swing.JTextField jtf_conjunto;
+    private javax.swing.JTextField jtf_deveng;
+    private javax.swing.JTextField jtf_intens;
     private javax.swing.JTable tabla;
+    private java.awt.TextArea textAreaTurnos;
     // End of variables declaration//GEN-END:variables
 }

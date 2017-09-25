@@ -1,18 +1,18 @@
-/**
- * 
+/*
+ * Guardia.java
+ * 22/09/2017
+ * @author Ana Lucia Hernandez 17138, Andrea Arguello 17801 
  */
 package Hospital;
 
-/**
- *
- * @author Ana
- */
+
 import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class Guardia {
+    //Atributos
     private Doctor[] doctores;
     private Enfermera[] enfermeras;
     private Turno[][] pizarra;
@@ -44,6 +44,7 @@ public class Guardia {
         }
         pizarra = new Turno[31][12];
     }
+    
     /**
      * Metodo para crear la pizarra que contendra todos los turnos del anio.
      * 
@@ -75,14 +76,15 @@ public class Guardia {
                 }
                 pizarra[i][j] = new Turno(nurse, doc);
                 pizarra[i][j].getEnfermera().addTurno();
-                if ((pizarra[i][j].getEnfermera().getIntensivista() == true) && (pizarra[i][j].getDoctor().getEspecial() == true))
-                {
-                    pizarra[i][j].getEnfermera().addConEspecial();
-                    pizarra[i][j].getDoctor().addConIntensivo();
-                }
+                if((pizarra[i][j].getEnfermera().getIntensivista()==true) && (pizarra[i][j].getDoctor().getEspecial()==true)){
+                    pizarra[i][j].getEnfermera().numCompanero(pizarra[i][j].getDoctor().getNombre()); //cuenta las veces que un especialista y una intensivista han trabajado
+            }
             }
         }
     }
+    
+
+    
     /**
      * Metodo para fijar todos los valores de la matriz en la tabla del GUI
      * @param tabla: tabla del GUI
@@ -95,11 +97,12 @@ public class Guardia {
         {
             for (int j=0; j<12; j++)
             {
-                String doct = pizarra[i][j].getDoctor().getNombre();
+                String doct = String.valueOf(pizarra[i][j].getDoctor().getNombre());
                 String enf = pizarra[i][j].getEnfermera().getNombre();
                 String info = "Dr.: "+doct+ "\nEnf.: "+enf;
                 tabla.setValueAt(info, i, j+1);
             }
+        //Fechas en las que no habrá un trabajo
         tabla.setValueAt("",28,2);
         tabla.setValueAt("",29,2);
         tabla.setValueAt("",30,2);
@@ -110,6 +113,11 @@ public class Guardia {
         }
         
     }
+    
+    public Turno getFechaPizarra(int dia, int mes){
+        return pizarra[dia][mes];
+    }
+    
     /**
      * Metodo para hacer el cambio del nombre de la enfermera cuando se deseed
      * @param dia: dia en el cual se quiere hacer el cambio
@@ -122,17 +130,18 @@ public class Guardia {
         {
             if (enfermera.getNombre().equals(nombre))
             {
-                if (enfermera.getIntensivista() == true)
+                if(((pizarra[dia][mes].getEnfermera().getIntensivista()==true) && (enfermera.getIntensivista() == true))||((pizarra[dia][mes].getEnfermera().getIntensivista()==false) && (enfermera.getIntensivista() == true)))
                 {
                     pizarra[dia][mes].getEnfermera().restarGuardias();
                     pizarra[dia][mes].setReemplazable(true);
-                    pizarra[dia][mes].setEnfermera(enfermera);
-                    pizarra[dia][mes].getEnfermera().addTurno();
                     if (pizarra[dia][mes].getDoctor().getEspecial() ==true)
                     {
-                        pizarra[dia][mes].getEnfermera().restarConEspecial();
-                        pizarra[dia][mes].getDoctor().restarConIntensivo();
+                        String doc=pizarra[dia][mes].getDoctor().getNombre();
+                        pizarra[dia][mes].getEnfermera().restarCompanero(doc); //a la enfermera anterior le resta una guardia conjunta con este especialista
+                        enfermera.numCompanero(doc); //le agrega esta guardia a la nueva enfermera
                     }
+                    pizarra[dia][mes].setEnfermera(enfermera);
+                    pizarra[dia][mes].getEnfermera().addTurno();
                 }
                 else
                 {
@@ -150,15 +159,34 @@ public class Guardia {
         String nombre = "";
         int mayor =0;
         for (Enfermera enfermera : enfermeras)
-        {
+        {if(enfermera.getIntensivista()==true){
             if (enfermera.getGuardias() > mayor)
             {
                 mayor = enfermera.getGuardias();
                 nombre = enfermera.getNombre();
             }
-        }
+        }}
         return nombre;
     }
+    
+    
+    /**
+     * 
+     * @param enf nombre de enfermera
+     * @param doc nombre de doctor
+     * @return veces que han trabajado juntos
+     */
+    public int guardiasConjuntas(String enf, String doc){
+        int conjunto=0;
+        for(Enfermera enfermera: enfermeras){
+            if(enfermera.getNombre().equals(enf)){
+                conjunto=enfermera.getGuardiasDoc(doc);
+                }
+            }
+        return conjunto;
+    }
+    
+    
     /**
      * Metodo para obtener el total que se les ha pagado a los trabajadores por turnos extra.
      * @return double total que se ha pagado de bonos extra por turnos en el año
@@ -175,5 +203,53 @@ public class Guardia {
         }
         return totalDevengado;
     }
+    
+    /**
+     * 
+     * @return extra de la intensivista
+     */
+    public double intensivistaExtra(){
+        double extra = 0.0;
+            int mayor =0;
+        for (Enfermera enfermera : enfermeras)
+        {
+            if (enfermera.getGuardias() > mayor)
+            {
+                mayor = enfermera.getGuardias();
+                extra = enfermera.getExtra();
+            }
+        }
+        return extra;
+    }
+    public String infoTurno(int dia, int mes)
+    {
+        String doct = String.valueOf(pizarra[dia][mes].getDoctor().getNombre());
+        String dnit = String.valueOf(pizarra[dia][mes].getDoctor().getNIT());
+        String ddpi = String.valueOf(pizarra[dia][mes].getDoctor().getdpi());
+        String dcol = String.valueOf(pizarra[dia][mes].getDoctor().getColegiado());
+        String dsal = String.valueOf(pizarra[dia][mes].getDoctor().getSalario());
+        String desp ="";
+        if(pizarra[dia][mes].getDoctor().getEspecial() == true)
+        {
+            desp = "Si";
+        }
+        else {desp += "No";}
+        String enf = pizarra[dia][mes].getEnfermera().getNombre();
+        String enit = pizarra[dia][mes].getEnfermera().getNIT();
+        String edpi = pizarra[dia][mes].getEnfermera().getdpi();
+        String inten = "";
+        if(pizarra[dia][mes].getEnfermera().getIntensivista() == true)
+        {
+            inten = "Si";
+        }
+        else {inten += "No";}
+        String esal = String.valueOf(pizarra[dia][mes].getEnfermera().getSalario());
+        String anios = String.valueOf(pizarra[dia][mes].getEnfermera().getAnios());
+        
+        String info = "Doctor: \n\tNombre: "+doct+ "\n\tNIT: "+dnit+"\n\tDPI: "+ddpi+"\n\tColegiado: "+dcol+"\n\tSalario: Q"+dsal+"\n\tEspecialista: "+desp;
+        info += "\nEnfermera: \n\tNombre: "+enf+"\n\tNIT: "+enit+"\n\tDPI: "+edpi+"\n\tIntensivista: "+inten+"\n\tSalario: Q"+esal+"\n\t Años de experiencia: "+ anios;
+        return info;
+    }
+    
     
 }

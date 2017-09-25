@@ -1,12 +1,13 @@
-/*
+/* 
+ * Doctor.java
+ * 22/09/2017
+ * @author Ana Lucia Hernandez 17138, Andrea Arguello 17801
  */
 package Hospital;
 
-/**
- *
- * @author Ana
- */
+
 public class Doctor {
+    //Atributos
     private int posicion;
     private String nombre;
     private String nit;
@@ -16,13 +17,17 @@ public class Doctor {
     private double extra;
     private boolean especialista;
     private double guardias;
-    private int guardiaJuana;
-    private int guardiaLidia;
-    private int guardiaMiriam;
-    private int guardiaLorna;
-    private int guardiaMariela;
-    private int conIntensivista; //variable que guarda las veces que este doctor ha realizado un turno con una enfermera del intensivo
     
+    /**
+     * 
+     * @param posicion
+     * @param nombre
+     * @param nit
+     * @param dpi
+     * @param colegiado
+     * @param salario
+     * @param especialista 
+     */
     public Doctor(int posicion, String nombre, String nit, String dpi, long colegiado, double salario, boolean especialista)
     {
         this.posicion = posicion;
@@ -34,59 +39,66 @@ public class Doctor {
         this.especialista = especialista;
         guardias =0;
     }
+    public String getNIT()
+    {
+        return nit;
+    }
+    public String getdpi()
+    {
+        return dpi;
+    }
+    public long getColegiado()
+    {
+        return colegiado;
+    }
+    public double getSalario()
+    {
+        return salario;
+    }
+    
+    /**
+     * 
+     * @return extra
+     */
     public double getExtra()
     {
         return extra;
     }
+    
+    /**
+     * 
+     * @return nombre
+     */
     public String getNombre()
     {
         return nombre;
     }
+    
+    /**
+     * 
+     * @return posicion
+     */
     public int getPosicion()
     {
         return posicion;
     }
+    
+    /**
+     * 
+     * @return es especialista o no
+     */
     public boolean getEspecial()
     {
         return especialista;
     }
-    public void addConIntensivo()
-    {
-        conIntensivista +=1;
-    }
-    public void restarConIntensivo()
-    {
-        conIntensivista -=1;
-    }
+    
+    
     public void addTurno()
     {
         guardias +=1;
         if (guardias > 24)
         {
             this.extra = guardias * 900.0;
-        }
-    }
-    public void numCompanero(Enfermera enfermera)
-    {
-        if(enfermera.getNombre().equals("Juana Lopez"))
-        {
-            guardiaJuana += 1;
-        }
-        if(enfermera.getNombre().equals("Lidia Mendez"))
-        {
-            guardiaLidia += 1;
-        }
-        if(enfermera.getNombre().equals("Miriam Garcia"))
-        {
-            guardiaMiriam += 1;
-        }
-        if(enfermera.getNombre().equals("Lorna Suarez"))
-        {
-            guardiaLorna += 1;
-        }
-        if(enfermera.getNombre().equals("Mariela Rodriguez"))
-        {
-            guardiaMariela += 1;
         }
     }
     
