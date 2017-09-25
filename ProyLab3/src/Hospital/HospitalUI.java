@@ -52,44 +52,44 @@ public class HospitalUI extends javax.swing.JFrame {
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null}
+                {"1", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"2", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"3", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"4", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"5", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"6", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"7", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"8", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"9", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"10", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"11", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"12", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"13", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"14", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"15", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"16", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"17", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"18", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"19", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"20", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"21", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"22", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"23", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"24", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"25", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"26", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"27", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"28", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"29", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"30", null, null, null, null, null, null, null, null, null, null, null, null},
+                {"31", null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+                "", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false
+                true, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

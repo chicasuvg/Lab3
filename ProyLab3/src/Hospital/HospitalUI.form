@@ -74,7 +74,40 @@
         <Component class="javax.swing.JTable" name="tabla">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="12" rowCount="31">
+              <Table columnCount="13" rowCount="31">
+                <Column editable="true" title="" type="java.lang.Object">
+                  <Data value="1"/>
+                  <Data value="2"/>
+                  <Data value="3"/>
+                  <Data value="4"/>
+                  <Data value="5"/>
+                  <Data value="6"/>
+                  <Data value="7"/>
+                  <Data value="8"/>
+                  <Data value="9"/>
+                  <Data value="10"/>
+                  <Data value="11"/>
+                  <Data value="12"/>
+                  <Data value="13"/>
+                  <Data value="14"/>
+                  <Data value="15"/>
+                  <Data value="16"/>
+                  <Data value="17"/>
+                  <Data value="18"/>
+                  <Data value="19"/>
+                  <Data value="20"/>
+                  <Data value="21"/>
+                  <Data value="22"/>
+                  <Data value="23"/>
+                  <Data value="24"/>
+                  <Data value="25"/>
+                  <Data value="26"/>
+                  <Data value="27"/>
+                  <Data value="28"/>
+                  <Data value="29"/>
+                  <Data value="30"/>
+                  <Data value="31"/>
+                </Column>
                 <Column editable="false" title="Enero" type="java.lang.Object"/>
                 <Column editable="false" title="Febrero" type="java.lang.Object"/>
                 <Column editable="false" title="Marzo" type="java.lang.Object"/>

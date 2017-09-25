@@ -99,7 +99,7 @@ public class Guardia {
                 String doct = pizarra[i][j].getDoctor().getNombre();
                 String enf = pizarra[i][j].getEnfermera().getNombre();
                 String info = "Dr.: "+doct+ "\nEnf.: "+enf;
-                tabla.setValueAt(info, i, j);
+                tabla.setValueAt(info, i, j+1);
             }
         }
         
