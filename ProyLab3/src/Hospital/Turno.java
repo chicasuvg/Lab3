@@ -14,7 +14,11 @@ public class Turno {
     private Enfermera enfermera;
     private Doctor medico;
     private boolean reemplazable;
-    
+    /**
+     * Metodo constructor
+     * @param enfermera: enfermera que se quiere poner en el turno
+     * @param doctor: medico que se quiere poner en el turno
+     */
     public Turno(Enfermera enfermera, Doctor doctor)
     {
         this.medico = doctor;

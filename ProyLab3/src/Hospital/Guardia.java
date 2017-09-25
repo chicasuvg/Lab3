@@ -89,6 +89,11 @@ public class Guardia {
             }
         }
     }
+    /**
+     * Metodo para fijar todos los valores de la matriz en la tabla del GUI
+     * @param tabla: tabla del GUI
+     * 
+     */
     public void setPizarra(JTable tabla)
     {
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -104,6 +109,12 @@ public class Guardia {
         }
         
     }
+    /**
+     * Metodo para hacer el cambio del nombre de la enfermera cuando se deseed
+     * @param dia: dia en el cual se quiere hacer el cambio
+     * @param mes: mes en el cual se quiere hacer el cambio
+     * @param nombre: nombre de la enfermera que se quiere poner en lugar de la anterior
+     */
     public void cambioEnfermera(int dia, int mes, String nombre) //para hacer el cambio de enfermera
     {
         for (Enfermera enfermera: enfermeras)
@@ -129,7 +140,11 @@ public class Guardia {
             }
         }
     }
-    public String masGuardias() // metodo que devuelve la enfermera que ha hecho mas turnos
+    /**
+     * Metodo que devuelve la enfermera que ha hecho mas turnos
+     * @return String nombre de la enfermera
+     */
+    public String masGuardias() 
     {
         String nombre = "";
         int mayor =0;
@@ -143,6 +158,10 @@ public class Guardia {
         }
         return nombre;
     }
+    /**
+     * Metodo para obtener el total que se les ha pagado a los trabajadores por turnos extra.
+     * @return double total que se ha pagado de bonos extra por turnos en el año
+     */
     public double getTotalDevengado()
     {
         double totalDevengado =0.0;
