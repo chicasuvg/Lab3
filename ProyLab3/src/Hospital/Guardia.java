@@ -221,6 +221,12 @@ public class Guardia {
         }
         return extra;
     }
+    /**
+     * Metodo para mostrar la informacion del doctor y la enfermera de cada turno
+     * @param dia: del cual quiere ver la informacion del turno
+     * @param mes: mes del cual quiere ver la informacion del turno
+     * @return string informacion del turno
+     */
     public String infoTurno(int dia, int mes)
     {
         String doct = String.valueOf(pizarra[dia][mes].getDoctor().getNombre());
