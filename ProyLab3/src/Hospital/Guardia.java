@@ -74,7 +74,7 @@ public class Guardia {
                     }
                 }
                 pizarra[i][j] = new Turno(nurse, doc);
-                pizarra[i][j].getEnfermera().addTurno();
+                pizarra[i][j].enfermera.addTurno();
             }
         }
         for(int k =0; k<31; k++)
