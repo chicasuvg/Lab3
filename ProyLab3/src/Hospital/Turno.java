@@ -35,11 +35,11 @@ public class Turno {
     }
     public Enfermera getEnfermera()
     {
-        return enfermera;
+        return this.enfermera;
     }
     public Doctor getDoctor()
     {
-        return medico;
+        return this.medico;
     }
     public boolean getReemplazable()
     {

@@ -1,4 +1,4 @@
-/*
+/**
  * 
  */
 package Hospital;
@@ -75,16 +75,10 @@ public class Guardia {
                 }
                 pizarra[i][j] = new Turno(nurse, doc);
                 pizarra[i][j].getEnfermera().addTurno();
-            }
-        }
-        for(int k =0; k<31; k++)
-        {
-            for(int h=0; h<12; h++)
-            {
-                if ((pizarra[k][h].getEnfermera().getIntensivista() == true) && (pizarra[k][h].getDoctor().getEspecial() == true))
+                if ((pizarra[i][j].getEnfermera().getIntensivista() == true) && (pizarra[i][j].getDoctor().getEspecial() == true))
                 {
-                    pizarra[k][h].getEnfermera().addConEspecial();
-                    pizarra[k][h].getDoctor().addConIntensivo();
+                    pizarra[i][j].getEnfermera().addConEspecial();
+                    pizarra[i][j].getDoctor().addConIntensivo();
                 }
             }
         }
