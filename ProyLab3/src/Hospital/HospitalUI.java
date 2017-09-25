@@ -15,6 +15,7 @@ public class HospitalUI extends javax.swing.JFrame {
      * Creates new form HospitalUI
      */
     Guardia turnos;
+    
     public HospitalUI() {
         initComponents();
         turnos = new Guardia();
