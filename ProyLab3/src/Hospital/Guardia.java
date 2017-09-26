@@ -102,7 +102,7 @@ public class Guardia {
                 String info = "Dr.: "+doct+ "\nEnf.: "+enf;
                 tabla.setValueAt(info, i, j+1);
             }
-        //Fechas en las que no habrá un trabajo
+        //Fechas en las que no habrá un turno, debido a que no existen en un calendario real. 
         tabla.setValueAt("",28,2);
         tabla.setValueAt("",29,2);
         tabla.setValueAt("",30,2);
@@ -113,8 +113,14 @@ public class Guardia {
         }
         
     }
-    
-    public Turno getFechaPizarra(int dia, int mes){
+    /**
+     * Metodo para obtener el turno de una fecha específica. 
+     * @param dia: dia en el cual se quiere obtener el turno
+     * @param mes: mes en el cual se quiere obtener el turno
+     * @return objeto turno que se encuentra en una fecha específica
+     */
+    public Turno getFechaPizarra(int dia, int mes)
+    {
         return pizarra[dia][mes];
     }
     
@@ -171,7 +177,8 @@ public class Guardia {
     
     
     /**
-     * 
+     * Para obtener la cantidad de turnos que un doctor especialista o una enfermera del intensivo ha tenido con otro doctor
+     * especialista/enfermera del intensivo específico.
      * @param enf nombre de enfermera
      * @param doc nombre de doctor
      * @return veces que han trabajado juntos
@@ -205,7 +212,7 @@ public class Guardia {
     }
     
     /**
-     * 
+     * Método para obtener la enfermera perteneciente al intensivo que realizó la mayor cantidad de turnos.
      * @return extra de la intensivista
      */
     public double intensivistaExtra(){
@@ -252,8 +259,8 @@ public class Guardia {
         String esal = String.valueOf(pizarra[dia][mes].getEnfermera().getSalario());
         String anios = String.valueOf(pizarra[dia][mes].getEnfermera().getAnios());
         
-        String info = "Doctor: \n\tNombre: "+doct+ "\n\tNIT: "+dnit+"\n\tDPI: "+ddpi+"\n\tColegiado: "+dcol+"\n\tSalario: Q"+dsal+"\n\tEspecialista: "+desp;
-        info += "\nEnfermera: \n\tNombre: "+enf+"\n\tNIT: "+enit+"\n\tDPI: "+edpi+"\n\tIntensivista: "+inten+"\n\tSalario: Q"+esal+"\n\t Años de experiencia: "+ anios;
+        String info = "DOCTOR: \n\nNombre: "+doct+ "\nNIT: "+dnit+"\nDPI: "+ddpi+"\nColegiado: "+dcol+"\nSalario: Q"+dsal+"\nEspecialista: "+desp;
+        info += "\n\nENFERMERA: \n\nNombre: "+enf+"\nNIT: "+enit+"\nDPI: "+edpi+"\nIntensivista: "+inten+"\nSalario: Q"+esal+"\nAños de experiencia: "+ anios;
         return info;
     }
     
