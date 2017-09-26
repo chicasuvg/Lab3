@@ -76,9 +76,10 @@ public class Guardia {
                 }
                 pizarra[i][j] = new Turno(nurse, doc);
                 pizarra[i][j].getEnfermera().addTurno();
-                if((pizarra[i][j].getEnfermera().getIntensivista()==true) && (pizarra[i][j].getDoctor().getEspecial()==true)){
+                if((pizarra[i][j].getEnfermera().getIntensivista()==true) && (pizarra[i][j].getDoctor().getEspecial()==true))
+                {
                     pizarra[i][j].getEnfermera().numCompanero(pizarra[i][j].getDoctor().getNombre()); //cuenta las veces que un especialista y una intensivista han trabajado
-            }
+                }
             }
         }
     }
