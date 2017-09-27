@@ -19,7 +19,7 @@ public class Guardia {
     
     public Guardia()
     {
-        int[] posiciones = {1, 2, 3, 4, 5};
+        int[] posiciones = {0, 1, 2, 3, 4};
         String[] nombresEnf = {"Juana Lopez", "Lidia Mendez","Miriam Garcia", "Lorna Suarez", "Mariela Rodriguez"};
         String[] nitsEnf = {"563269-K", "7654376-6", "9876456-8", "4567865-8", "6789654-8"};
         String[] dpiEnf = {"5643213450101", "1246547850101", "6547854370101", "569374160101", "3254786540101"};
@@ -58,8 +58,8 @@ public class Guardia {
         {
             for (int j=0; j<12; j++)
             {
-                int positionE = genRandom.nextInt(6);
-                int positionD = genRandom.nextInt(6);
+                int positionE = genRandom.nextInt(5);
+                int positionD = genRandom.nextInt(5);
                 for(Enfermera enfermera: enfermeras)
                 {
                     if(enfermera.getPosicion() == positionE)
