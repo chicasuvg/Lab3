@@ -137,7 +137,7 @@ public class Guardia {
         {
             if (enfermera.getNombre().equals(nombre))
             {
-                if(((pizarra[dia][mes].getEnfermera().getIntensivista()==true) && (enfermera.getIntensivista() == true))||((pizarra[dia][mes].getEnfermera().getIntensivista()==false) && (enfermera.getIntensivista() == true)))
+                if(((pizarra[dia][mes].getEnfermera().getIntensivista()==true) && (enfermera.getIntensivista() == true)) || ((pizarra[dia][mes].getEnfermera().getIntensivista()==false) && (enfermera.getIntensivista() == true)) || ((pizarra[dia][mes].getEnfermera().getIntensivista()==false) && (enfermera.getIntensivista() == false)))
                 {
                     pizarra[dia][mes].getEnfermera().restarGuardias();
                     pizarra[dia][mes].setReemplazable(true);
